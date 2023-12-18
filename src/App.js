@@ -71,10 +71,10 @@ const App = () => {
         <Routes>
         <Route path="/" element={ <CategoriePage onCategoryClick={handleCategoryClick} />} />
           <Route path="/admin" element={<AdminPage />} />
-          <Route path="/admin/produits/:selectedCategorie" element={<AdminProduitsPage />} />
+          <Route path="/admin/product/:selectedCategorie" element={<AdminProduitsPage />} />
           <Route path="/produits/:selectedCategorie" element={<ProduitsPage categorie={selectedCategorie} onAddToCart={handleAddToCart} />} />
           <Route path="/panier" element={<PanierPage />} />
-          <Route path="/categories" element={  <CategoriePage onCategoryClick={handleCategoryClick} />} />
+          <Route path="/category" element={  <CategoriePage onCategoryClick={handleCategoryClick} />} />
           <Route path="/promo" element={  <ProduitsPage onAddToCart={handleAddToCart}/>} />
           <Route path="/basket" element={<PanierPage panier={panier} onIncrease={handleIncrease} onDecrease={handleDecrease} onDelete={handleDelete} onConfirmOrder={handleConfirmOrder}/>} />
         </Routes>

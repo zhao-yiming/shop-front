@@ -15,32 +15,32 @@ const PanierPage = ({ panier, onIncrease, onDecrease, onDelete, onConfirmOrder }
 
   return (
     <div>
-      <h1>Votre panier :</h1>
+      <h1>Your orders :</h1>
       <ul>
         {aggregatedPanier.map((produit, index) => (
           <li key={index}>
             <div>
-              <strong>Nom:</strong> {produit.nom}
+              <strong>Name:</strong> {produit.nom}
             </div>
             <div>
-              <strong>Prix unitaire:</strong> {produit.prix} $
+              <strong>Unit price:</strong> {produit.prix} $
             </div>
             <div>
-              <strong>Quantité:</strong> {produit.quantite}
+              <strong>Quantity:</strong> {produit.quantite}
             </div>
             <div>
               <button onClick={() => onIncrease(index)}>+</button>
               <button onClick={() => onDecrease(index)}>-</button>
-              <button onClick={() => onDelete(index)}>Supprimer</button>
+              <button onClick={() => onDelete(index)}>Delete</button>
             </div>
             <hr />
           </li>
         ))}
       </ul>
       <div>
-        <strong>Total à payer :</strong> {totalAmount} $
+        <strong>Total amount :</strong> {totalAmount} $
       </div>
-      <button onClick={onConfirmOrder}>Confirmer la commande</button>
+      <button onClick={onConfirmOrder}>Confirme order</button>
     </div>
   );
 };

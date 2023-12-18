@@ -17,9 +17,9 @@ const TopNavBar = () => {
         </Typography>
         <Button color="inherit" sx={{ marginLeft: 10 }} onClick={() => handleTabChange('Basket')}>Basket</Button>
         <Button color="inherit" sx={{ marginLeft: 10 }} onClick={() => handleTabChange('Promo')}>Promo</Button>
-        <Button color="inherit" sx={{ marginLeft: 10 }} onClick={() => handleTabChange('Categories')}>Catégories</Button>
+        <Button color="inherit" sx={{ marginLeft: 10 }} onClick={() => handleTabChange('Category')}>Category</Button>
         <Button color="inherit" sx={{ marginLeft: 10 }} onClick={() => handleTabChange('Admin')}>Admin</Button>
-        <Button color="inherit" sx={{ marginLeft: 10 }} onClick={() => handleTabChange('Profil')}>Profil</Button>
+        <Button color="inherit" sx={{ marginLeft: 10 }} onClick={() => handleTabChange('User')}>User</Button>
       </Toolbar>
     </AppBar>
   );

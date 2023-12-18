@@ -5,9 +5,9 @@ import { Button, Container, CssBaseline, Typography, TextField } from '@mui/mate
 const AdminProduitsPage = () => {
   const { selectedCategorie } = useParams();
   const [produits, setProduits] = useState([//get all produict of a categorie (admin use)
-    { nom: 'Produit 1', prix: 10, quantite: 2 },
-    { nom: 'Produit 2', prix: 15, quantite: 1 },
-    { nom: 'Produit 3', prix: 25, quantite: 1 },
+    { nom: 'Product 1', prix: 10, quantite: 2 },
+    { nom: 'Product 2', prix: 15, quantite: 1 },
+    { nom: 'Product 3', prix: 25, quantite: 1 },
   ]);
 
   const [newProduct, setNewProduct] = useState({
@@ -35,42 +35,42 @@ const AdminProduitsPage = () => {
       <CssBaseline />
       <div>
         <Typography component="h1" variant="h5">
-          Produits de la catégorie {selectedCategorie} :
+          Product of category {selectedCategorie} :
         </Typography>
         <div style={{ marginTop: 30 }}>
           {produits.map((product, index) => (
             <div key={index} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <Typography>{product.nom}</Typography>
-              <Typography>{`Prix: ${product.prix} Quantité: ${product.quantite}`}</Typography>
+              <Typography>{`Price: ${product.prix} Quantity: ${product.quantite}`}</Typography>
               <Button
                 variant="outlined"
                 color="secondary"
                 onClick={() => handleRemoveProduct(product.nom)}
               >
-                Supprimer
+                Delete
               </Button>
             </div>
           ))}
         </div>
         <div style={{ marginTop: 20 }}>
-          <Typography variant="subtitle1">Ajouter un nouveau produit :</Typography>
+          <Typography variant="subtitle1">Add new product :</Typography>
           <div style={{ display: 'flex', marginTop: 10 }}>
             <TextField
               variant="outlined"
-              label="Produit"
+              label="Product"
               value={newProduct.nom}
               onChange={(e) => setNewProduct({ ...newProduct, nom: e.target.value })}
             />
             <TextField
               variant="outlined"
-              label="Prix"
+              label="Price"
               type="number"
               value={newProduct.prix}
               onChange={(e) => setNewProduct({ ...newProduct, prix: Number(e.target.value) })}
             />
             <TextField
               variant="outlined"
-              label="Quantité"
+              label="Quantity"
               type="number"
               value={newProduct.quantite}
               onChange={(e) => setNewProduct({ ...newProduct, quantite: Number(e.target.value) })}

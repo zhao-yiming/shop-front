@@ -4,7 +4,7 @@ import { Button, Container, CssBaseline, Typography, TextField } from '@mui/mate
 
 const AdminPage = () => {
   const navigate = useNavigate();
-  const [categories, setCategories] = useState(['Jeux', 'Sport', 'Jardin', 'Vêtement', 'Aliment', 'Autre']);//get categories
+  const [categories, setCategories] = useState(['Game', 'Sport', 'Garden', 'Cloth', 'Food', 'Others']);//get categories
   const [newCategory, setNewCategory] = useState('');
 
   const handleAddCategory = () => {
@@ -20,7 +20,7 @@ const AdminPage = () => {
   };
 
   const handleCategoryClick = (category) => {
-    navigate(`/admin/produits/${category}`);
+    navigate(`/admin/product/${category}`);
   };
 
   return (
@@ -28,7 +28,7 @@ const AdminPage = () => {
       <CssBaseline />
       <div>
         <Typography component="h1" variant="h5">
-          Choisissez une catégorie:
+          Choose category :
         </Typography>
         <div style={{ marginTop: 30 }}>
           {categories.map((category, index) => (
@@ -53,11 +53,11 @@ const AdminPage = () => {
           ))}
         </div>
         <div style={{ marginTop: 20 }}>
-          <Typography variant="subtitle1">Ajouter une nouvelle catégorie :</Typography>
+          <Typography variant="subtitle1">Add new category :</Typography>
           <div style={{ display: 'flex', marginTop: 10 }}>
             <TextField
               variant="outlined"
-              label="Nouvelle catégorie"
+              label="New category"
               value={newCategory}
               onChange={(e) => setNewCategory(e.target.value)}
             />

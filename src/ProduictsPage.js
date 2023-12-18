@@ -7,20 +7,20 @@ const ProduictsPage = ({ categorie, onAddToCart }) => {
 
   return (
     <div>
-      <h1>Produits de la catégorie {categorie} :</h1>
+      <h1>Product of {categorie} :</h1>
       <ul>
         {produits.map((produit, index) => (
           <li key={index}>
             <div>
-              <strong>Nom:</strong> {produit.nom}
+              <strong>Name:</strong> {produit.nom}
             </div>
             <div>
-              <strong>Prix unitaire:</strong> {produit.prix} $
+              <strong>Unit price:</strong> {produit.prix} $
             </div>
             <div>
-              <strong>Quantité en stock:</strong> {produit.quantiteEnStock}
+              <strong>Quantity in stock:</strong> {produit.quantiteEnStock}
             </div>
-            <button onClick={() => onAddToCart(produit)}>Ajouter au panier</button>
+            <button onClick={() => onAddToCart(produit)}>Add to basket</button>
             <hr />
           </li>
         ))}

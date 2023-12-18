@@ -3,14 +3,14 @@ import { Button, Container, CssBaseline, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 const CategoriePage = ({ onCategoryClick }) => {
-  const categories = ['Jeux', 'Sport', 'Jardin', 'Vêtement', 'Aliment', 'Autre'];//get all existing categories
+  const categories = ['Game', 'Sport', 'Garden', 'Cloth', 'Food', 'Others'];//get all existing categories
 
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div>
         <Typography component="h1" variant="h5">
-          Choisissez une catégorie:
+          Choose a category:
         </Typography>
         <div style={{ marginTop: 30 }}>
           {categories.map((category, index) => (
