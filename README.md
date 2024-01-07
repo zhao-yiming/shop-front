@@ -1,70 +1,91 @@
-# Getting Started with Create React App
+# React E-Commerce Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a simple React-based E-Commerce application with features like browsing products, adding them to the cart, and managing products and categories in the admin panel.
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+- [Components](#components)
+  - [ProduictsPage](#produictspage)
+  - [PanierPage](#panierpage)
+  - [TopNavBar](#topnavbar)
+  - [CategoriePage](#categoriepage)
+  - [App](#app)
+  - [AdminProduitsPage](#adminproduitspage)
+  - [AdminPage](#adminpage)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Docker](#Docker)
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Components
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### ProduictsPage
 
-### `npm test`
+This component displays a list of products based on the selected category. Users can view product details, prices, and add products to their cart.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### PanierPage
 
-### `npm run build`
+This component shows the user's current orders. Users can increase or decrease the quantity of each product, delete items, and confirm their order.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### TopNavBar
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The TopNavBar component serves as the application's navigation bar. It allows users to navigate between different sections of the application, such as the basket, promotions, categories, admin panel, and user-specific features.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### CategoriePage
 
-### `npm run eject`
+This component displays a list of categories, allowing users to choose a category to browse products.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### App
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The main App component sets up the application's routing and manages the overall state of the application, including the selected tab, category, and user's shopping cart.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### AdminProduitsPage
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+This component is part of the admin panel and allows administrators to manage products within a specific category. It includes features to add new products and remove existing ones.
 
-## Learn More
+### AdminPage
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The AdminPage component is part of the admin panel and enables administrators to manage product categories. It includes features to add new categories and remove existing ones.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Installation
 
-### Code Splitting
+1. Clone the repository:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+   ```bash
+   git clone https://github.com/zhao-yiming/shop-front.git
 
-### Analyzing the Bundle Size
+2. Change to the project directory:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+   ```bash
+   cd shop-front
+   
+4. Install dependencies:
 
-### Making a Progressive Web App
+   ```bash
+    npm install
+   
+## Usage
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Run the application locally:
 
-### Advanced Configuration
+  ```bash
+   npm start
+  ```
+Access the application in your browser at http://localhost:3000.
+  
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Docker
 
-### Deployment
+1. Build the Docker image:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+  ```bash
+  docker build -t shop-front .
+  ```
 
-### `npm run build` fails to minify
+2. Run the Docker container:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+  ```bash
+  docker run -p 3000:3000 shop-front.
+  ```
+
+Access the application in your browser at http://localhost:3000.
