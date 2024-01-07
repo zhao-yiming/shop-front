@@ -1,23 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Button, Container, CssBaseline, Typography, TextField } from '@mui/material';
 
 const AdminProduitsPage = () => {
   const { selectedCategorie } = useParams();
-  const [produits, setProduits] = useState([//get all produict of a categorie (admin use)
-    { nom: 'Product 1', prix: 10, quantite: 2 },
-    { nom: 'Product 2', prix: 15, quantite: 1 },
-    { nom: 'Product 3', prix: 25, quantite: 1 },
-  ]);
-
+  const [produits, setProduits] = useState([]);
   const [newProduct, setNewProduct] = useState({
     nom: '',
     prix: 0,
     quantite: 0,
   });
 
+  useEffect(() => {
+    // Fetch products when the component mounts
+    fetch('http://172.17.39.108:3200/products')
+      .then(response => response.json())
+      .then(data => setProduits(data))
+      .catch(error => console.error('Error fetching products:', error));
+  }, []);
+
   const handleAddProduct = () => {
-    setProduits([...produits, newProduct]);//add a new produit in a specific categorie (create link produit-categorie)
+    setProduits([...produits, newProduct]);
     setNewProduct({
       nom: '',
       prix: 0,
@@ -26,8 +29,8 @@ const AdminProduitsPage = () => {
   };
 
   const handleRemoveProduct = (productName) => {
-    const updatedProduits = produits.filter((product) => product.nom !== productName);//delete a produit in a specific categorie (delete link produit-categorie)
-    setProduits(updatedProduits);//delete a produit in a specific categorie (delete link produit-categorie)
+    const updatedProduits = produits.filter((product) => product.nom !== productName);
+    setProduits(updatedProduits);
   };
 
   return (
@@ -40,12 +43,12 @@ const AdminProduitsPage = () => {
         <div style={{ marginTop: 30 }}>
           {produits.map((product, index) => (
             <div key={index} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-              <Typography>{product.nom}</Typography>
-              <Typography>{`Price: ${product.prix} Quantity: ${product.quantite}`}</Typography>
+              <Typography>{product.productname}</Typography>
+              <Typography>{`Price: ${product.price} Quantity: ${product.quantity}`}</Typography>
               <Button
                 variant="outlined"
                 color="secondary"
-                onClick={() => handleRemoveProduct(product.nom)}
+                onClick={() => handleRemoveProduct(product.productname)}
               >
                 Delete
               </Button>

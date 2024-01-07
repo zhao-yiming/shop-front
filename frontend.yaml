@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-ecamazone-shop
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: frontend-ecamazone-shop
+  template:
+    metadata:
+      labels:
+        app: frontend-ecamazone-shop
+    spec:
+      containers:
+      - name: frontend-ecamazone-shop
+        image: zhao8755562/shop_front
+        ports:
+        - containerPort: 3000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend-ecamazone-shop
+spec:
+  selector:
+    app: frontend-ecamazone-shop
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
+  type: LoadBalancer

@@ -17,13 +17,13 @@ const PanierPage = ({ panier, onIncrease, onDecrease, onDelete, onConfirmOrder }
     <div>
       <h1>Your orders :</h1>
       <ul>
-        {aggregatedPanier.map((produit, index) => (
+        {panier.map((produit, index) => (
           <li key={index}>
             <div>
-              <strong>Name:</strong> {produit.nom}
+              <strong>Name:</strong> {produit.productname}
             </div>
             <div>
-              <strong>Unit price:</strong> {produit.prix} $
+              <strong>Unit price:</strong> {produit.price} $
             </div>
             <div>
               <strong>Quantity:</strong> {produit.quantite}
@@ -37,10 +37,8 @@ const PanierPage = ({ panier, onIncrease, onDecrease, onDelete, onConfirmOrder }
           </li>
         ))}
       </ul>
-      <div>
-        <strong>Total amount :</strong> {totalAmount} $
-      </div>
-      <button onClick={onConfirmOrder}>Confirme order</button>
+      
+      <button onClick={onConfirmOrder}>Confirm order</button>
     </div>
   );
 };
